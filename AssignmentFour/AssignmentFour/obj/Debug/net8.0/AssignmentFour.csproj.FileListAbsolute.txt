@@ -1,0 +1,16 @@
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\bin\Debug\net8.0\sherlock.txt
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\bin\Debug\net8.0\AssignmentFour.exe
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\bin\Debug\net8.0\AssignmentFour.deps.json
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\bin\Debug\net8.0\AssignmentFour.runtimeconfig.json
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\bin\Debug\net8.0\AssignmentFour.dll
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\bin\Debug\net8.0\AssignmentFour.pdb
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\obj\Debug\net8.0\AssignmentFour.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\obj\Debug\net8.0\AssignmentFour.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\obj\Debug\net8.0\AssignmentFour.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\obj\Debug\net8.0\AssignmentFour.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\obj\Debug\net8.0\AssignmentFour.sourcelink.json
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\obj\Debug\net8.0\AssignmentFour.dll
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\obj\Debug\net8.0\refint\AssignmentFour.dll
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\obj\Debug\net8.0\AssignmentFour.pdb
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\obj\Debug\net8.0\AssignmentFour.genruntimeconfig.cache
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\AssignmentFour\AssignmentFour\obj\Debug\net8.0\ref\AssignmentFour.dll

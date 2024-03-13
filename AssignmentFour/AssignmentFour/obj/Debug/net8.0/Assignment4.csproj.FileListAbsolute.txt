@@ -1,0 +1,16 @@
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\bin\Debug\net8.0\Assignment4.exe
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\bin\Debug\net8.0\Assignment4.deps.json
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\bin\Debug\net8.0\Assignment4.runtimeconfig.json
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\bin\Debug\net8.0\Assignment4.dll
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\bin\Debug\net8.0\Assignment4.pdb
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\obj\Debug\net8.0\Assignment4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\obj\Debug\net8.0\Assignment4.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\obj\Debug\net8.0\Assignment4.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\obj\Debug\net8.0\Assignment4.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\obj\Debug\net8.0\Assignment4.sourcelink.json
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\obj\Debug\net8.0\Assignment4.dll
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\obj\Debug\net8.0\refint\Assignment4.dll
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\obj\Debug\net8.0\Assignment4.pdb
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\obj\Debug\net8.0\Assignment4.genruntimeconfig.cache
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\obj\Debug\net8.0\ref\Assignment4.dll
+C:\Users\user\Documents\GitHub\assignment-four-ivelmakina-kzholtikova\Assignment4\Assignment4\bin\Debug\net8.0\sherlock.txt
