@@ -12,6 +12,7 @@ static class Program
 
             Dictionary<char, int> symbolFrequency = new Dictionary<char, int>();
             CountSymbolFrequency(content, symbolFrequency);
+            PrintSymbolFrequency(symbolFrequency);
         } else { Console.WriteLine("File was not found."); }
     }
 
@@ -26,4 +27,14 @@ static class Program
         }
 
     }
+
+    private static void PrintSymbolFrequency(Dictionary<char, int> symbolFrequency)
+    {
+        Console.WriteLine("Symbol frequency:");
+        foreach (KeyValuePair<char, int> entry in symbolFrequency)
+        {
+            Console.WriteLine($"Symbol: {entry.Key}, Quantity: {entry.Value}");
+        }
+    }
+    
 }
