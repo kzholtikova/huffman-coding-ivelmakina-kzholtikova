@@ -9,10 +9,6 @@ static class Program
         if (File.Exists(filePath))
         {
             string content = File.ReadAllText(filePath);
-
-            Dictionary<char, int> symbolFrequency = new Dictionary<char, int>();
-            CountSymbolFrequency(content, symbolFrequency);
-            PrintSymbolFrequency(symbolFrequency);
         } else { Console.WriteLine("File was not found."); }
     }
 
