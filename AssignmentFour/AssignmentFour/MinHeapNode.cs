@@ -3,7 +3,7 @@ namespace Assignment4;
 public class MinHeapNode
 {
     private char _data;
-    private int _freq;
+    public int _freq;
     private MinHeapNode? _left;
     private MinHeapNode? _right;
     
