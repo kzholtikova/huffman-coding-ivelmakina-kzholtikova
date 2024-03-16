@@ -23,4 +23,26 @@ public class HuffmanTree
             _minHeapPrQ.Enqueue(top);
         }
     }
+
+    public void PrintCodes()
+    {
+        MinHeapNode root = _minHeapPrQ.Dequeue();
+        PrintCodes(root, "");
+    }
+
+    private void PrintCodes(MinHeapNode root, string str)
+    {
+        if (root == null)
+        {
+            return;
+        }
+
+        if (root.Data != '$')
+        {
+            Console.WriteLine(root.Data + ": " + str);
+        }
+        
+        PrintCodes(root.Left, str + "0");
+        PrintCodes(root.Right, str + "1");
+    }
 }
