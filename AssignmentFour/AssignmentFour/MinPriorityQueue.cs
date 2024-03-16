@@ -47,7 +47,7 @@ namespace Assignment4
         
         private void HeapifyUp(int index)
         {
-            while (index > 0 && _heapq[index]._freq < _heapq[ParentIndex(index)]._freq)
+            while (index > 0 && _heapq[index].Freq < _heapq[ParentIndex(index)].Freq)
             {
                 Swap(index, ParentIndex(index));
                 index = ParentIndex(index);
@@ -58,12 +58,12 @@ namespace Assignment4
         {
             int minIndex = index;
             
-            if (LeftChildIndex(index) < _heapq.Count() && _heapq[LeftChildIndex(index)]._freq < _heapq[minIndex]._freq)
+            if (LeftChildIndex(index) < _heapq.Count() && _heapq[LeftChildIndex(index)].Freq < _heapq[minIndex].Freq)
             {
                 minIndex = LeftChildIndex(index);
             }
 
-            if (RightChildIndex(index) < _heapq.Count() && _heapq[RightChildIndex(index)]._freq < _heapq[minIndex]._freq)
+            if (RightChildIndex(index) < _heapq.Count() && _heapq[RightChildIndex(index)].Freq < _heapq[minIndex].Freq)
             {
                 minIndex = RightChildIndex(index);
             }
