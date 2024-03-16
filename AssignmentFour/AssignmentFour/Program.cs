@@ -4,33 +4,39 @@ static class Program
 {
     public static void Main()
     {
-        string filePath = "sherlock.txt";
-
-        if (File.Exists(filePath))
-        {
-            string content = File.ReadAllText(filePath);
-        } else { Console.WriteLine("File was not found."); }
-    }
-
-    static void CountSymbolFrequency(string text, Dictionary<char, int> frequency)
-    {
-        foreach (char symbol in text)
-        {
-            if (frequency.ContainsKey(symbol))
+            string filePath = "sherlock.txt";
+        
+            if (File.Exists(filePath))
             {
-                frequency[symbol]++;
-            } else { frequency[symbol] = 1; }
-        }
-
+                string content = File.ReadAllText(filePath);
+                
+                Dictionary<char, int> symbolFrequencies = new Dictionary<char, int>();
+                CountSymbolFrequency(content, symbolFrequencies);
+                HuffmanTree huffmanTree = new HuffmanTree();
+                huffmanTree.BuildTree(symbolFrequencies);
+                huffmanTree.PrintCodes(); 
+            } else { Console.WriteLine("File was not found."); }
     }
-
-    private static void PrintSymbolFrequency(Dictionary<char, int> symbolFrequency)
-    {
-        Console.WriteLine("Symbol frequency:");
-        foreach (KeyValuePair<char, int> entry in symbolFrequency)
+        
+        static void CountSymbolFrequency(string text, Dictionary<char, int> frequency)
         {
-            Console.WriteLine($"Symbol: {entry.Key}, Quantity: {entry.Value}");
+            foreach (char symbol in text)
+            {
+                if (frequency.ContainsKey(symbol))
+                {
+                    frequency[symbol]++;
+                } else { frequency[symbol] = 1; }
+            }
+        
         }
+
+        private static void PrintSymbolFrequency(Dictionary<char, int> symbolFrequency)
+        {
+            Console.WriteLine("Symbol frequency:");
+            foreach (KeyValuePair<char, int> entry in symbolFrequency)
+            {
+                Console.WriteLine($"Symbol: {entry.Key}, Quantity: {entry.Value}");
+            }
+        }
+
     }
-    
-}

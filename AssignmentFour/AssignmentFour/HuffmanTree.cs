@@ -30,7 +30,7 @@ public class HuffmanTree
         PrintCodes(root, "");
     }
 
-    private void PrintCodes(MinHeapNode root, string str)
+    private void PrintCodes(MinHeapNode? root, string str)
     {
         if (root == null)
         {
