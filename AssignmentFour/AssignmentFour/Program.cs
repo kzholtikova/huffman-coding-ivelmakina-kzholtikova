@@ -4,38 +4,40 @@ static class Program
 {
     public static void Main()
     {
-            string filePath = "sherlock.txt";
+            const string filePath = "sherlock.txt";
         
             if (File.Exists(filePath))
             {
                 string content = File.ReadAllText(filePath);
-                
+
                 Dictionary<char, int> symbolFrequencies = new Dictionary<char, int>();
                 CountSymbolFrequency(content, symbolFrequencies);
+                
                 HuffmanTree huffmanTree = new HuffmanTree();
                 huffmanTree.BuildTree(symbolFrequencies);
-                huffmanTree.PrintCodes(); 
+                
+                Dictionary<char, string> codeTable = huffmanTree.BuildCodeTableRecursive();
+                PrintDict(codeTable);
             } else { Console.WriteLine("File was not found."); }
     }
         
-        static void CountSymbolFrequency(string text, Dictionary<char, int> frequency)
+        private static void CountSymbolFrequency(string text, Dictionary<char, int> frequency)
         {
             foreach (char symbol in text)
             {
-                if (frequency.ContainsKey(symbol))
+                if (frequency.TryGetValue(symbol, out int value))
                 {
-                    frequency[symbol]++;
+                    frequency[symbol] = ++value;
                 } else { frequency[symbol] = 1; }
             }
         
         }
 
-        private static void PrintSymbolFrequency(Dictionary<char, int> symbolFrequency)
+        private static void PrintDict<TKey, TValue>(Dictionary<TKey, TValue> dictionary) where TKey : notnull
         {
-            Console.WriteLine("Symbol frequency:");
-            foreach (KeyValuePair<char, int> entry in symbolFrequency)
+            foreach (KeyValuePair<TKey, TValue> entry in dictionary)
             {
-                Console.WriteLine($"Symbol: {entry.Key}, Quantity: {entry.Value}");
+                Console.WriteLine($"{entry.Key}, {entry.Value}");
             }
         }
 

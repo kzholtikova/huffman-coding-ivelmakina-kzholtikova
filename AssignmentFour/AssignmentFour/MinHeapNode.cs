@@ -1,17 +1,10 @@
 namespace Assignment4;
 
-public class MinHeapNode
+public class MinHeapNode(char data, int freq, MinHeapNode? left, MinHeapNode? right)
 {
-    public char Data;
-    public int Freq;
-    public MinHeapNode? Left;
-    public MinHeapNode? Right;
-    
-    public MinHeapNode(char data, int freq, MinHeapNode? left, MinHeapNode? right)
-    {
-        Data = data;
-        Freq = freq;
-        Left = left;
-        Right = right;
-    }
+    public readonly char Data = data;
+    public readonly int Freq = freq;
+    public MinHeapNode? Left = left;
+    public MinHeapNode? Right = right;
+    public bool IsLeaf => Left == null && Right == null; // if !IsLeaf -> IsInternal
 }

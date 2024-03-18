@@ -2,47 +2,52 @@ namespace Assignment4;
 
 public class HuffmanTree
 {
-    private PriorityQueue _minHeapPrQ = new();
+    private readonly MinHeap _minHeap = new();
 
     public void BuildTree(Dictionary<char, int> symbolFrequency)
     {
         foreach (KeyValuePair<char, int> entry in symbolFrequency)
         {
             MinHeapNode node = new MinHeapNode(entry.Key, entry.Value, null, null);
-            _minHeapPrQ.Enqueue(node);
+            _minHeap.Enqueue(node);
         }
 
-        while (_minHeapPrQ.Count() > 1)
+        while (_minHeap.Count() > 1)
         {
-            MinHeapNode left = _minHeapPrQ.Dequeue();
-            MinHeapNode right = _minHeapPrQ.Dequeue();
+            MinHeapNode? left = _minHeap.Dequeue();
+            MinHeapNode? right = _minHeap.Dequeue();
             
-            MinHeapNode top = new MinHeapNode('$', left.Freq + right.Freq, null, null);
-            top.Left = left;
-            top.Right = right;
-            _minHeapPrQ.Enqueue(top);
+            MinHeapNode top = new MinHeapNode('$', left.Freq + right.Freq, null, null)
+            {
+                Left = left,
+                Right = right
+            };
+            _minHeap.Enqueue(top);
         }
     }
 
-    public void PrintCodes()
+    public Dictionary<char, string> BuildCodeTableRecursive()
     {
-        MinHeapNode root = _minHeapPrQ.Dequeue();
-        PrintCodes(root, "");
+        Dictionary<char, string> codeTable = new();
+        MinHeapNode? root = _minHeap.Dequeue();
+        BuildCodeTableRecursive(root, "", ref codeTable);
+        return codeTable;
     }
 
-    private void PrintCodes(MinHeapNode? root, string str)
+    private void BuildCodeTableRecursive(MinHeapNode? node, string code, ref Dictionary<char, string> codeTable)
     {
-        if (root == null)
+        if (node == null)
         {
             return;
         }
 
-        if (root.Data != '$')
+        if (node.IsLeaf)
         {
-            Console.WriteLine(root.Data + ": " + str);
+            codeTable[node.Data] = code;
         }
         
-        PrintCodes(root.Left, str + "0");
-        PrintCodes(root.Right, str + "1");
+        BuildCodeTableRecursive(node.Left, code + "0", ref codeTable);
+        BuildCodeTableRecursive(node.Right, code + "1", ref codeTable); 
     }
+
 }

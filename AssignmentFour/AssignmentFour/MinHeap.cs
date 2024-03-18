@@ -1,6 +1,6 @@
 namespace Assignment4
 {
-    public class PriorityQueue
+    public class MinHeap
     {
         private List<MinHeapNode> _heapq = new();
 
@@ -25,11 +25,11 @@ namespace Assignment4
             HeapifyUp(Count() - 1);
         }
 
-        public MinHeapNode Dequeue()
+        public MinHeapNode? Dequeue()
         {
             if (_heapq.Count == 0)
             {
-                throw new InvalidOperationException("Priority queue is empty.");
+                return null;
             }
         
             MinHeapNode minValue = _heapq[0];
