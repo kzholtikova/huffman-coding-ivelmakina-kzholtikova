@@ -49,6 +49,10 @@ public class Coder
         byte[] encodedBytes = allBytes.Skip(delimiterIndex + 1).ToArray();
 
         Dictionary<string, char> codeTable = DecodeCodeTable(codeTableBytes);
+        string decodedText = DecodeContent(encodedBytes, codeTable);
+        File.WriteAllText("d-" + filename[2..], decodedText);
+        
+        Console.WriteLine($"{filename} file successfully decoded into d-{filename[2..]}");
     }
 
     private static string GetValidFilepath()
@@ -104,5 +108,23 @@ public class Coder
         }
 
         return codeTable;
+    }
+
+    private static string DecodeContent(byte[] encodedBytes, Dictionary<string, char> codeTable)
+    {
+        string result = "";
+
+        string currentCode = "";
+        for (int i = 0; i < encodedBytes.Length; i++)
+        {
+            currentCode += Convert.ToString(encodedBytes[i], 2).PadLeft(8, '0');
+            if (codeTable.TryGetValue(currentCode, out char symbol))
+            {
+                result += symbol;
+                currentCode = "";
+            }
+        }
+
+        return result;
     }
 }
