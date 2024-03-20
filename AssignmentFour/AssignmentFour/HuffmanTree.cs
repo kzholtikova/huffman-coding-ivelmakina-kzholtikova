@@ -1,12 +1,27 @@
 namespace Assignment4;
 
-public class HuffmanTree
+public class HuffmanTree(string text)
 {
     private readonly MinHeap _minHeap = new();
 
-    public void BuildTree(Dictionary<char, int> symbolFrequency)
+    private static void CountSymbolFrequency(string text, Dictionary<char, int> frequency)
     {
-        foreach (KeyValuePair<char, int> entry in symbolFrequency)
+        foreach (char symbol in text)
+        {
+            if (frequency.TryGetValue(symbol, out int value))
+            {
+                frequency[symbol] = ++value;
+            } else { frequency[symbol] = 1; }
+        }
+    
+    }
+
+    public void BuildTree()
+    {
+        Dictionary<char, int> symbolFrequencies = new Dictionary<char, int>();
+        CountSymbolFrequency(text, symbolFrequencies);
+        
+        foreach (KeyValuePair<char, int> entry in symbolFrequencies)
         {
             MinHeapNode node = new MinHeapNode(entry.Key, entry.Value, null, null);
             _minHeap.Enqueue(node);
