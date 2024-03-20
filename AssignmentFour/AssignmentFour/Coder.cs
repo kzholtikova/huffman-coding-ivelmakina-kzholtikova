@@ -47,6 +47,8 @@ public class Coder
         int delimiterIndex = Array.IndexOf(allBytes, (byte)'|');
         byte[] codeTableBytes = allBytes.Take(delimiterIndex).ToArray();
         byte[] encodedBytes = allBytes.Skip(delimiterIndex + 1).ToArray();
+
+        Dictionary<string, char> codeTable = DecodeCodeTable(codeTableBytes);
     }
 
     private static string GetValidFilepath()
@@ -76,5 +78,31 @@ public class Coder
         }
 
         return bytecode;
+    }
+
+    private static Dictionary<string, char> DecodeCodeTable(byte[] codeTableBytes)
+    {
+        Dictionary<string, char> codeTable = new();
+        char currentChar = (char)codeTableBytes[0];
+        string currentCode = "";
+        
+        for (int i = 1; i < codeTableBytes.Length - 1; i++)
+        {
+            currentCode += Convert.ToString(codeTableBytes[i], 2).PadLeft(8, '0');
+            
+            if (codeTableBytes[i + 1] == (byte)'\t')
+            {
+                codeTable[currentCode] = currentChar;
+                
+                i += 2;
+                if (i < codeTableBytes.Length)
+                {
+                    currentChar = (char)codeTableBytes[i];
+                    currentCode = "";
+                }
+            }
+        }
+
+        return codeTable;
     }
 }
