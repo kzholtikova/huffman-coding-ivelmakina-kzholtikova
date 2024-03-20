@@ -14,6 +14,28 @@ public class Coder
         HuffmanTree huffmanTree = new HuffmanTree(content);
         huffmanTree.BuildTree();
         Dictionary<char, string> codeTable = huffmanTree.BuildCodeTableRecursive();
+        Program.PrintDict(codeTable);
+        
+        using (FileStream stream = new FileStream("e-" + filepath, FileMode.Create))
+        {
+            foreach (KeyValuePair<char, string> charCode in codeTable)
+            {
+                stream.WriteByte(Convert.ToByte(charCode.Key));
+                byte[] byteCode = BinaryStringToByte(charCode.Value);
+                stream.Write(byteCode, 0, byteCode.Length);
+                stream.WriteByte(Convert.ToByte('\t'));
+            }
+            
+            stream.WriteByte(Convert.ToByte('|'));
+
+            foreach (char symbol in content)
+            {
+                byte[] symbolByteCode = BinaryStringToByte(codeTable[symbol]);
+                stream.Write(symbolByteCode, 0, symbolByteCode.Length);
+            }
+        }
+        
+        Console.WriteLine($"{filename} file successfully encoded into e-{filename}");
     }
     
     public static void Decode()
@@ -36,7 +58,7 @@ public class Coder
         return filepath;
     }
 
-    private static byte[] BinaryStringtoByte(string code)
+    private static byte[] BinaryStringToByte(string code)
     {
         int padLength = (8 - (code.Length % 8)) % 8;
         code = code.PadRight(code.Length + padLength, '0');
