@@ -15,25 +15,7 @@ public class Coder
         huffmanTree.BuildTree();
         Dictionary<char, string> codeTable = huffmanTree.BuildCodeTableRecursive();
         
-        using (FileStream stream = new FileStream("e-" + filepath, FileMode.Create))
-        {
-            foreach (KeyValuePair<char, string> charCode in codeTable)
-            {
-                stream.WriteByte(Convert.ToByte(charCode.Key));
-                byte[] byteCode = BinaryStringToByte(charCode.Value);
-                stream.Write(byteCode, 0, byteCode.Length);
-                stream.WriteByte(Convert.ToByte('\t'));
-            }
-            
-            stream.WriteByte(Convert.ToByte('|'));
-
-            foreach (char symbol in content)
-            {
-                byte[] symbolByteCode = BinaryStringToByte(codeTable[symbol]);
-                stream.Write(symbolByteCode, 0, symbolByteCode.Length);
-            }
-        }
-        
+        CreateEncodedFile(filepath, codeTable, content);
         Console.WriteLine($"{filename} file successfully encoded into e-{filename}");
     }
     
@@ -66,6 +48,28 @@ public class Coder
         }
         
         return filepath;
+    }
+
+    private static void CreateEncodedFile(string filepath, Dictionary<char, string> codeTable, string content)
+    {
+        using (FileStream stream = new FileStream("e-" + filepath, FileMode.Create))
+        {
+            foreach (KeyValuePair<char, string> charCode in codeTable)
+            {
+                stream.WriteByte(Convert.ToByte(charCode.Key));
+                byte[] byteCode = BinaryStringToByte(charCode.Value);
+                stream.Write(byteCode, 0, byteCode.Length);
+                stream.WriteByte(Convert.ToByte('\t'));
+            }
+            
+            stream.WriteByte(Convert.ToByte('|'));
+
+            foreach (char symbol in content)
+            {
+                byte[] symbolByteCode = BinaryStringToByte(codeTable[symbol]);
+                stream.Write(symbolByteCode, 0, symbolByteCode.Length);
+            }
+        }
     }
 
     private static byte[] BinaryStringToByte(string code)
