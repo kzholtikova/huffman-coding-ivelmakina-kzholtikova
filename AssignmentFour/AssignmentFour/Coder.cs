@@ -14,7 +14,6 @@ public class Coder
         HuffmanTree huffmanTree = new HuffmanTree(content);
         huffmanTree.BuildTree();
         Dictionary<char, string> codeTable = huffmanTree.BuildCodeTableRecursive();
-        Program.PrintDict(codeTable);
         
         using (FileStream stream = new FileStream("e-" + filepath, FileMode.Create))
         {
@@ -77,8 +76,7 @@ public class Coder
         byte[] bytecode = new byte[code.Length / 8];
         for (int i = 0; i < code.Length / 8; i++)
         {
-            string substr = code.Substring(i * 8, 8);
-            bytecode[i] = Convert.ToByte(substr, 2);
+            bytecode[i] = Convert.ToByte(code.Substring(i * 8, 8), 2);
         }
 
         return bytecode;
