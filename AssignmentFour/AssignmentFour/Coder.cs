@@ -42,6 +42,11 @@ public class Coder
     {
         string filepath = GetValidFilepath();
         string filename = Path.GetFileName(filepath);
+        byte[] allBytes = File.ReadAllBytes(filepath);
+        
+        int delimiterIndex = Array.IndexOf(allBytes, (byte)'|');
+        byte[] codeTableBytes = allBytes.Take(delimiterIndex).ToArray();
+        byte[] encodedBytes = allBytes.Skip(delimiterIndex + 1).ToArray();
     }
 
     private static string GetValidFilepath()
