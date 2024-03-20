@@ -1,25 +1,25 @@
+using System.Security.AccessControl;
+using System.Text;
+
 namespace Assignment4;
 
 public class Coder
 {
-    private const string ToEncode = "sherlock.txt";
-    
     public static void Encode()
     {
-        string content = File.ReadAllText(GetValidFilepath());
+        string filepath = GetValidFilepath();
+        string filename = Path.GetFileName(filepath);
+        string content = File.ReadAllText(filepath);
         
         HuffmanTree huffmanTree = new HuffmanTree(content);
         huffmanTree.BuildTree();
         Dictionary<char, string> codeTable = huffmanTree.BuildCodeTableRecursive();
-        Program.PrintDict(codeTable);
     }
     
     public static void Decode()
     {
-        string[] content = File.ReadAllLines(GetValidFilepath());
-        string code = content[1];
-        
-        string encodedCodeTable = content[0];
+        string filepath = GetValidFilepath();
+        string filename = Path.GetFileName(filepath);
     }
 
     private static string GetValidFilepath()
@@ -32,6 +32,22 @@ public class Coder
             Console.WriteLine("Invalid path. Try again: ");
             filepath = Console.ReadLine();
         }
+        
         return filepath;
+    }
+
+    private static byte[] BinaryStringtoByte(string code)
+    {
+        int padLength = (8 - (code.Length % 8)) % 8;
+        code = code.PadRight(code.Length + padLength, '0');
+        
+        byte[] bytecode = new byte[code.Length / 8];
+        for (int i = 0; i < code.Length / 8; i++)
+        {
+            string substr = code.Substring(i * 8, 8);
+            bytecode[i] = Convert.ToByte(substr, 2);
+        }
+
+        return bytecode;
     }
 }
